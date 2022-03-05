@@ -3,8 +3,9 @@ import { expect } from 'chai'
 import 'dotenv/config'
 
 describe('Auth', function() {
-    it('Successful log in', function() {
     const request = supertest(process.env.BASE_URL)
+
+    it('Successful log in', function() {
         request
             .post('/auth')
             .send({ login: process.env.LOGIN, password: process.env.PASSWORD })
