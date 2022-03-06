@@ -2,6 +2,15 @@ import supertest from 'supertest'
 import { expect } from 'chai'
 import 'dotenv/config'
 
+describe('Auth ', function() {
+    const request = supertest(process.env.BASE_URL)
+
+    it('Successful log in', function () {
+        request
+            .post('/auth')
+            .send({login: process.env.LOGIN, password: process.env.PASSWORD})
+            .end(function (err, res) {
+
 describe('Auth', function() {
     const request = supertest(process.env.BASE_URL)
 
@@ -17,11 +26,14 @@ describe('Auth ', function() {
             .post('/auth')
             .send({login: 'adminius', password: 'supers3cret'})
             .end(function (err, res) {
-
+          
                 expect(res.statusCode).to.eq(200)
                 expect(res.body.token).not.to.be.undefined
             })
     })
+
+    it('Log in with invalid credentials', function () {
+
 
     it('Log in with invalid credentials', function() {
         request
@@ -36,6 +48,7 @@ describe('Auth ', function() {
 
     it('Log in with invalid credentials', function () {
         const request = supertest('https://paysis.herokuapp.com')
+
         request
             .post('/auth')
             .send({login: 'invalid', password: 'invalid'})
@@ -44,4 +57,8 @@ describe('Auth ', function() {
                 expect(res.body.token).to.eq('Wrong login or password.')
             })
     })
+
 })
+
+}
+
