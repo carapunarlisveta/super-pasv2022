@@ -11,7 +11,7 @@ describe('Auth ', function() {
         before(async function() {
             await request
                 .post('/auth')
-                .send({login: process.env.LOGIN, password: process.env.PASSWORD})
+                .send({ login: process.env.LOGIN, password: process.env.PASSWORD })
                 .then(res=> {
                     result = res
                 })
@@ -31,7 +31,7 @@ describe('Auth ', function() {
         before( async function() {
             await request
                 .post('/auth')
-                .send({login: 'invalid', password: 'invalid'})
+                .send({ login: 'invalid', password: 'invalid' })
                 .then(res=> {
                     result = res
                 })
