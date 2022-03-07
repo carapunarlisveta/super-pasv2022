@@ -30,6 +30,10 @@ describe('Auth ', function() {
         it('response status code is 404', function () {
             expect(authHelper.response.body.message).to.eq('Wrong login or password.')
         })
+
+        it('response body contains error message', function() {
+            expect(authHelper.response.body.message).to.eq('wrong Login or password')
+        })
     })
 
 })
