@@ -12,10 +12,6 @@ describe('Users', function() {
         userId = userHelper.response.body.id
     })
 
-        after(async function() {
-            const configHelper = new ConfigHelper()
-            await configHelper.wipeData()
-        })
 
 
     describe('User creation', function() {
